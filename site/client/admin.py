@@ -80,7 +80,7 @@ class PersonaggioAdmin(BaseAdmin):
             'fields': (('px_tot', 'px_liberi', 'aetas', 'essenza', 'canal', 'raptus', 'voluntas', 'aetas_base'), )
         }),        
         ('ATTRIBUTI', {
-            'fields': (('vigore', 'psiche', 'nefesh', 'destrezza', 'percezione', 'persuasione'),)
+            'fields': (('vigore', 'destrezza', 'psiche', 'percezione', 'nefesh',   'persuasione'),)
         }),
         ('CAPACITA', {
             'fields': (('armi_fuoco', 'atletica', 'manualita', 'armi_bianche', 'sopravvivenza'),)
