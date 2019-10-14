@@ -135,6 +135,7 @@ class PregioPersonaggioRel(BaseModel):
     pregio = models.ForeignKey(PregioDifetto, on_delete=models.CASCADE, related_name='personaggi')
     personaggio = models.ForeignKey(Personaggio, on_delete=models.CASCADE, related_name='pregi')
     bonus = models.SmallIntegerField(default=0, validators=[MinValueValidator(-10), MaxValueValidator(10)])
+    dettagli = models.CharField(max_length=20, blank=True)
     
     class Meta:
         verbose_name_plural = 'Pregi e Difetti'    
