@@ -1,4 +1,4 @@
-sudo a2ensite gestoir
+sudo ufw allow 8888
 
 NameVirtualHost *:8888
 Listen 8888
@@ -23,6 +23,8 @@ Listen 8888
   </Directory>
 
 </VirtualHost>
+
+sudo a2ensite gestoir
 
 
 # https://www.omkarpathak.in/2018/11/11/ubuntu-django-apache/

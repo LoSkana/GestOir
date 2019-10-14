@@ -50,7 +50,7 @@ class Potere(BaseModel):
         return self.name          
         
 class Giocatore(BaseModel):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='giocatore')   
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='giocatore', null=True)   
     name = models.CharField(max_length=30)  
     class Meta:
         verbose_name_plural = 'Giocatori'        
@@ -165,7 +165,7 @@ class PoterePersonaggioRel(BaseModel):
         return "%s - %s - %d" % (self.personaggio, self.potere, self.livello)         
 
 class Evento(BaseModel):
-    name = models.CharField(max_length=30)  
+    name = models.CharField(max_length=60)  
     data = models.DateField()
     class Meta:
         verbose_name_plural = 'Eventi'        
