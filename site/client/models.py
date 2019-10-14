@@ -50,7 +50,7 @@ class Potere(BaseModel):
         return self.name          
         
 class Giocatore(BaseModel):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='giocatore', null=True)   
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='giocatore', blank=True, null=True)   
     name = models.CharField(max_length=30)  
     class Meta:
         verbose_name_plural = 'Giocatori'        
