@@ -1,10 +1,10 @@
 ### Custom
 
-media/*
-stuff/*
+schede/all/*
+static/*
 
 site/client/migrations
-site/hms/settings.py
+site/app/settings.py
 
 ### Django ###
 *.log
