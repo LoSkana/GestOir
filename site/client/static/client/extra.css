@@ -1,0 +1,15 @@
+#table_fieldset {
+    width: 100%
+}
+
+#table_fieldset td, #table_fieldset th{
+    padding: 0.5em;
+}
+
+.aligned label { 
+    width: auto;  !important;
+}
+
+#table_fieldset .readonly {
+    padding-top: 6px;
+}
