@@ -1,7 +1,7 @@
 ### Custom
 
-schede/all/*
-static/*
+schede/all/
+static/
 
 site/client/migrations
 site/app/settings.py
