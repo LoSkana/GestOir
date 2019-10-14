@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %} - Home{% endblock %}
 
 {% block content %}
 
-    Ciao {{ pl.name }}!  <br/><br/>
+    Ciao {{ pl.name }}!  Ecco i tuoi personaggi nella nostra Cronaca: <br/><br/>
     
     <table>
     <tr>
-        <th>Nome</th><th>Congrega</th><th>Genea</th><th>Px liberi</th><th>Essenza</th><th>Voluntas</th>
+        <th>Nome</th><th>Congrega</th><th>Genea</th><th>Px liberi</th><th>Essenza</th><th>Voluntas</th><th colspan=2 >Azioni</th>
     </tr>
     {% for pg in pgs %}
     <tr>
-        <td><a href="{% url 'sheet' pg.id %}">{{ pg.name }}</a></td><td>{{ pg.congrega }}</td><td>{{ pg.genea }}</td><td><a href="{% url 'px' pg.id %}">Px: {{ pg.px_liberi }}</a></td><td>{{ pg.essenza }}</td><td>{{ pg.voluntas }}</td>
+        <td>{{ pg.name }}</td><td>{{ pg.congrega }}</td><td>{{ pg.genea }}</td><td>{{ pg.px_liberi }}</td><td>{{ pg.essenza }}</td><td>{{ pg.voluntas }}</td><td><a href="{% url 'sheet' pg.id %}">Scheda</a></td><td><a href="{% url 'px' pg.id %}">Dettaglio Px</a></td>
     </tr>
     {% endfor %}
     </table>

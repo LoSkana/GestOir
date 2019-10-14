@@ -1,5 +1,37 @@
-django-admin-autocomplete-filter
-django-admin-select2
-reportlab
-python-slugify
-django-stronghold
+sudo a2ensite gestoir
+
+NameVirtualHost *:8888
+Listen 8888
+<VirtualHost *:8888>
+
+  DocumentRoot /var/www/html/gestoir/site
+
+  <Directory /var/www/html/gestoir/site/app/>
+    <Files wsgi.py>
+      Require all granted
+    </Files>
+  </Directory>
+
+  WSGIDaemonProcess gestoir python-path=/var/www/html/gestoir/site python-home=/var/www/html/gestoir/venv
+  WSGIProcessGroup gestoir
+  WSGIScriptAlias / /var/www/html/gestoir/site/app/wsgi.py
+
+  Alias /static/ /var/www/html/gestoir/static/
+
+  <Directory /var/www/html/gestoir/static/>
+    Require all granted
+  </Directory>
+
+</VirtualHost>
+
+
+# https://www.omkarpathak.in/2018/11/11/ubuntu-django-apache/
+
+virtualenv venv
+
+cd venv/
+source bin/activate
+
+pip install mysqlclient pypdf2 django django-admin-autocomplete-filter django-admin-select2 reportlab python-slugify django-stronghold
+
+

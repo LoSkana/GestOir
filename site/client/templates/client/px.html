@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Stato px di: {{ pg.name }} {% endblock %}
+{% block title %} - Dettaglio px di: {{ pg.name }} {% endblock %}
 
 {% block content %}
 
@@ -8,7 +8,7 @@
     
     <table>
     <tr>
-        <th>Evento</th><th>Px tot</th><th>Px fissi</th><th>interpretazione</th><th>costumistica</th><th>qualita_gioco</th><th>qualita_azioni</th>
+        <th>Evento</th><th>Px tot</th><th>Px fissi</th><th>Interpret.</th><th>Costumist.</th><th>Qualità Gioco</th><th>Qualità Azioni</th>
     </tr>
     {% for g in pg.guadagni.all %}
     <tr>
@@ -22,6 +22,8 @@
     </tr>
     {% endfor %}
     </table>
+    
+    <br />
     
     <h2>Px spesi</h2>
     
