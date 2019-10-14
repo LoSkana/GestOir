@@ -71,12 +71,12 @@ class Personaggio(BaseModel):
     essenza_c  = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(200)], verbose_name='Essenza corrente') 
     voluntas_c = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)], verbose_name='Voluntas corrente') 
     
-    vigore = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
-    destrezza = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
-    psiche = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
-    percezione = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
-    nefesh = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
-    persuasione = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
+    vigore = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
+    destrezza = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
+    psiche = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
+    percezione = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
+    nefesh = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
+    persuasione = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
     
     aetas  = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
     aetas_base = models.SmallIntegerField(default=20, validators=[MinValueValidator(0), MaxValueValidator(100)])
