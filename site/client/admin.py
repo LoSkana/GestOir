@@ -104,7 +104,7 @@ class PersonaggioAdmin(BaseAdmin):
       
     class Media:   
         css = {
-             'all': ('/static/css/admin-extra.css ',)
+             'all': ('/static/client/extra.css ',)
         }      
     
 admin.site.register(Personaggio, PersonaggioAdmin)
