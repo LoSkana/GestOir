@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Stato px di: {{ pg.name }} {% endblock %}
+
+{% block content %}
+
+    <h2>Px guadagnati</h2>
+    
+    <table>
+    <tr>
+        <th>Evento</th><th>Px tot</th><th>Px fissi</th><th>interpretazione</th><th>costumistica</th><th>qualita_gioco</th><th>qualita_azioni</th>
+    </tr>
+    {% for g in pg.guadagni.all %}
+    <tr>
+        <td>{{ g.evento }}</td>
+        <td>{{ g.px_tot }}</td>
+        <td>{{ g.px_fissi }}</td>
+        <td>{{ g.interpretazione }}</td>
+        <td>{{ g.costumistica }}</td>
+        <td>{{ g.qualita_gioco }}</td>
+        <td>{{ g.qualita_azioni }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    
+    <h2>Px spesi</h2>
+    
+    <table>
+    <tr>
+        <th>Evento</th><th>Px spesi</th><th>Motivazione</th>
+    </tr>
+    {% for g in pg.spese.all %}
+    <tr>
+        <td>{{ g.evento }}</td>
+        <td>{{ g.px_spesi }}</td>
+        <td>{{ g.motivazione }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    
+
+{% endblock %}

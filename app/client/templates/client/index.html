@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+    Ciao {{ pl.name }}!  <br/><br/>
+    
+    <table>
+    <tr>
+        <th>Nome</th><th>Congrega</th><th>Genea</th><th>Px liberi</th><th>Essenza</th><th>Voluntas</th>
+    </tr>
+    {% for pg in pgs %}
+    <tr>
+        <td><a href="{% url 'sheet' pg.id %}">{{ pg.name }}</a></td><td>{{ pg.congrega }}</td><td>{{ pg.genea }}</td><td><a href="{% url 'px' pg.id %}">Px: {{ pg.px_liberi }}</a></td><td>{{ pg.essenza }}</td><td>{{ pg.voluntas }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    
+  <p><a href="{% url 'logout' %}">logout</a></p>
+
+{% endblock %}
