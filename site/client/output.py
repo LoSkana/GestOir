@@ -14,6 +14,8 @@ from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
+from slugify import slugify
+
 pdfmetrics.registerFont(TTFont('Balthazar', os.path.join(settings.SCHEDE_DIR, 'Balthazar.ttf')))
 
 from reportlab.rl_config import defaultPageSize
