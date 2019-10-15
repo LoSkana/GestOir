@@ -29,6 +29,10 @@
         <h1 class="mx-auto my-0 text-uppercase">Gestionale Oir</h1>
             {% block content %}
             {% endblock %}
+            
+        {% if user.is_authenticated %}
+          <p><a href="{% url 'logout' %}">logout</a></p>
+        {% endif %}
       </div>
     </div>
   </div>

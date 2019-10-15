@@ -38,6 +38,6 @@ virtualenv venv
 cd venv/
 source bin/activate
 
-pip install mysqlclient pypdf2 django django-admin-autocomplete-filter django-admin-select2 reportlab python-slugify django-stronghold
+pip install mysqlclient pypdf2 django django-admin-autocomplete-filter django-admin-select2 reportlab python-slugify django-stronghold django-registration
 
 
