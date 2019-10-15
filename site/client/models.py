@@ -15,46 +15,50 @@ from django.contrib.auth.models import User
 from .output import *
 
 class BaseModel(models.Model):
-    created_date = models.DateTimeField(auto_now_add=True)
-    modified_date = models.DateTimeField(auto_now=True)
     slug = models.CharField(max_length=30, unique=True)  
 
     class Meta:
         abstract = True
         
+class AdvancedModel(BaseModel):
+    slug = models.CharField(max_length=30, unique=True)  
+
+    class Meta:
+        abstract = True        
+        
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.brand_name)
+        self.slug = slugify(self.name)
         super(BaseModel, self).save(*args, **kwargs)        
 
-class Genea(BaseModel):
+class Genea(AdvancedModel):
     name = models.CharField(max_length=30)
     class Meta:
         verbose_name_plural = 'Genee'     
     def __str__(self):
         return self.name        
     
-class Congrega(BaseModel):
+class Congrega(AdvancedModel):
     name = models.CharField(max_length=30)  
     class Meta:
         verbose_name_plural = 'Congreghe'        
     def __str__(self):
         return self.name     
         
-class PregioDifetto(BaseModel):
+class PregioDifetto(AdvancedModel):
     name = models.CharField(max_length=30)  
     class Meta:
         verbose_name_plural = 'Pregi e Difetti'        
     def __str__(self):
         return self.name  
         
-class Potere(BaseModel):
+class Potere(AdvancedModel):
     name = models.CharField(max_length=30)  
     class Meta:
         verbose_name_plural = 'Poteri'        
     def __str__(self):
         return self.name          
         
-class Giocatore(BaseModel):
+class Giocatore(AdvancedModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='giocatore', blank=True, null=True)   
     name = models.CharField(max_length=30)  
     class Meta:
@@ -65,7 +69,7 @@ class Giocatore(BaseModel):
 def md5secret():
     return hashlib.md5(str(time.time()).encode('utf-8')).hexdigest()
 
-class Personaggio(BaseModel):
+class Personaggio(AdvancedModel):
     giocatore = models.ForeignKey(Giocatore, on_delete=models.SET_NULL, null=True, related_name='personaggi')
     name = models.CharField(max_length=30)
     png = models.BooleanField(default=False)
@@ -147,7 +151,7 @@ class PregioPersonaggioRel(BaseModel):
     def __str__(self):
         return "%s - %s - %d" % (self.personaggio, self.pregio, self.bonus)  
         
-class SpecManualita(BaseModel):
+class SpecManualita(AdvancedModel):
     personaggio = models.ForeignKey(Personaggio, on_delete=models.CASCADE, related_name='spec_manualita')
     name = models.CharField(max_length=30)
     livello = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
@@ -169,7 +173,7 @@ class PoterePersonaggioRel(BaseModel):
     def __str__(self):
         return "%s - %s - %d" % (self.personaggio, self.potere, self.livello)         
 
-class Evento(BaseModel):
+class Evento(AdvancedModel):
     name = models.CharField(max_length=60)  
     data = models.DateField()
     class Meta:
