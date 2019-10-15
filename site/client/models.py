@@ -81,7 +81,7 @@ class Personaggio(BaseModel):
     aetas  = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
     aetas_base = models.SmallIntegerField(default=20, validators=[MinValueValidator(0), MaxValueValidator(100)])
     essenza  = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(200)], verbose_name='Essenza max')
-    canal = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
+    canal = models.SmallIntegerField(default=5, validators=[MinValueValidator(0), MaxValueValidator(10)])
     voluntas = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)], verbose_name='Volutantas max')
     raptus = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(15)])
     carica = models.CharField(max_length=30, blank=True)
