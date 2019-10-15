@@ -47,6 +47,19 @@ def print_scheda(modeladmin, request, queryset):
     
 print_scheda.short_description = "Stampa scheda"
 
+def s(i):
+    if i == 0:
+        return ''
+    else:
+        return str(i)
+
+def ss(i):
+    if i > 0:
+        return '+%d' % (i, )
+    else:
+        return str(i)
+        
+
 def print_scheda_pg(pg):
     
     # create a new PDF with Reportlab
@@ -65,7 +78,7 @@ def print_scheda_pg(pg):
     w_attr = 254
     w_spec = 506
     y_first = 116
-    y_incr = 25
+    y_incr = 24.8
     
     w_pos = w_attr
     y_pos = y_first
@@ -105,64 +118,64 @@ def print_scheda_pg(pg):
     
     w_pos = w_cap
     y_pos = y_second
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.armi_fuoco, )) 
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.armi_fuoco), )) 
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.atletica, )) 
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.atletica), )) 
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.manualita, ))     
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.manualita), ))     
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.armi_bianche, ))   
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.armi_bianche), ))   
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.sopravvivenza, ))      
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.sopravvivenza), ))      
     
     w_pos = w_inf
     y_pos = y_second
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.alta_societa, )) 
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.alta_societa), )) 
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.sanita, )) 
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.sanita), )) 
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.finanza, ))     
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.finanza), ))     
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.trasporti, ))   
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.trasporti), ))   
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.politica, ))
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.politica), ))
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.forze_ordine, )) 
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.forze_ordine), )) 
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.occultismo, ))     
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.occultismo), ))     
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.religione, ))   
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.religione), ))   
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.criminalita, ))
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.criminalita), ))
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.media, ))     
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.media), ))     
     
     w_pos = w_bgk
     y_pos = y_second
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.risorse, )) 
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.risorse), )) 
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.mentore, )) 
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.mentore), )) 
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.gregge, ))     
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.gregge), ))     
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.retaggio, ))   
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.retaggio), ))   
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.discepoli, ))    
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.discepoli), ))    
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.alleati, ))  
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.alleati), ))  
     
     w_pos = w_con
     y_incr = y_incr * 2
     y_pos = y_second + y_incr / 2 - 11
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.accademiche, )) 
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.accademiche), )) 
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.economia, )) 
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.economia), )) 
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.legge, ))     
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.legge), ))     
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.ritualistica, ))   
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.ritualistica), ))   
     y_pos += y_incr
-    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%d" % (pg.strada, ))     
+    can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.strada), ))     
     
     y_spec = 488
     w_spec = 95  
@@ -172,7 +185,7 @@ def print_scheda_pg(pg):
     w_pos = w_spec
     y_pos = y_spec
     for obj in pg.spec_manualita.all():        
-        can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s (%d)" % (obj.name, obj.livello ))      
+        can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s %s(%d)" % (obj.name, obj.dettagli, obj.livello ))      
         y_pos += y_incr   
         # print(obj)
         
@@ -183,7 +196,7 @@ def print_scheda_pg(pg):
     y_pos = y_third
     for obj in pg.pregi.all():        
         can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (obj.pregio, ))      
-        can.drawCentredString(w_pos + 120, PAGE_HEIGHT-y_pos, "%s" % (obj.bonus, ))  
+        can.drawCentredString(w_pos + 120, PAGE_HEIGHT-y_pos, "%s" % (ss(obj.bonus, ))  )
         y_pos += y_incr       
         
     w_poteri = 420        
