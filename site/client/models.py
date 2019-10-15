@@ -22,7 +22,7 @@ class BaseModel(models.Model):
         abstract = True
         
 class AdvancedModel(BaseModel):
-    slug = models.CharField(max_length=30, unique=True)  
+    slug = models.CharField(max_length=60)  
 
     class Meta:
         abstract = True        
