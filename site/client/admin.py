@@ -10,6 +10,7 @@ admin.site.disable_action('delete_selected')
 class BaseAdmin(admin.ModelAdmin):
     search_fields = ('name', )
     ordering = ('name',)   
+    exclude = ('slug',)
     
 class GeneaAdmin(BaseAdmin):
     list_display = ('name',) 
