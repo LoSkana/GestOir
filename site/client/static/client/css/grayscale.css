@@ -85,3 +85,8 @@ table th {
     font-size: 0.9em;
     font-weight: 600;
 }
+
+a {
+text-decoration: none;
+color: white; 
+}
