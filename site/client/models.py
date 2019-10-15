@@ -22,14 +22,16 @@ class BaseModel(models.Model):
         abstract = True
         
 class AdvancedModel(BaseModel):
-    slug = models.CharField(max_length=60, unique=True)  
+    slug = models.CharField(max_length=60)  
 
     class Meta:
         abstract = True        
         
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
-        super(BaseModel, self).save(*args, **kwargs)        
+        s = type(self).objects.filter(slug=self.slug)
+        if len(s) == 0:
+            super(BaseModel, self).save(*args, **kwargs)        
 
 class Genea(AdvancedModel):
     name = models.CharField(max_length=30)
