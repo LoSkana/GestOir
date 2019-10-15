@@ -15,8 +15,9 @@ from django.contrib.auth.models import User
 from .output import *
 
 class BaseModel(models.Model):
-    slug = models.CharField(max_length=30, unique=True)  
-
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+ 
     class Meta:
         abstract = True
         
