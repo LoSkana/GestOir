@@ -152,7 +152,7 @@ class PregioPersonaggioRel(BaseModel):
     def __str__(self):
         return "%s - %s - %d" % (self.personaggio, self.pregio, self.bonus)  
         
-class SpecManualita(AdvancedModel):
+class SpecManualita(BaseModel):
     personaggio = models.ForeignKey(Personaggio, on_delete=models.CASCADE, related_name='spec_manualita')
     name = models.CharField(max_length=30)
     livello = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
