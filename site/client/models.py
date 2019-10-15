@@ -17,9 +17,14 @@ from .output import *
 class BaseModel(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
+    slug = models.CharField(max_length=30, unique=True)  
 
     class Meta:
         abstract = True
+        
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.brand_name)
+        super(BaseModel, self).save(*args, **kwargs)        
 
 class Genea(BaseModel):
     name = models.CharField(max_length=30)
