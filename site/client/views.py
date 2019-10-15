@@ -2,6 +2,7 @@ from django.shortcuts import render
 import datetime
 from django.http import HttpResponse, Http404, FileResponse
 from .models import *
+from slugify import slugify
 
 def nice_try(request):
     return render(request, 'client/nice_try.html')
