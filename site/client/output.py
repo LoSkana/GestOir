@@ -244,6 +244,12 @@ def update_pg(pg):
     
     pg.raptus = pg.retaggio + pg.nefesh
     
+    if pg.essenza_c == 0:
+        pg.essenza_c = pg.essenza
+
+    if pg.voluntas_c == 0:
+        pg.voluntas_c = pg.voluntas
+    
     print_scheda_pg(pg)
     
-    print("ciao")
+    # print("ciao")

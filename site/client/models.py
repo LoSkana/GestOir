@@ -126,10 +126,9 @@ class Personaggio(BaseModel):
     def __str__(self):
         return self.name            
         
-@receiver(post_save, sender=Personaggio)
-def personaggio_save(sender, instance, created, **kwargs):  
-    if created: 
-        update_pg(instance)    
+@receiver(pre_save, sender=Personaggio)
+def personaggio_save(sender, instance, **kwargs):  
+    update_pg(instance)    
 
 class PregioPersonaggioRel(BaseModel):
     pregio = models.ForeignKey(PregioDifetto, on_delete=models.CASCADE, related_name='personaggi')
