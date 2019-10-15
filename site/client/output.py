@@ -197,7 +197,7 @@ def print_scheda_pg(pg):
     w_pos = w_pregi
     y_pos = y_third
     for obj in pg.pregi.all():        
-        can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s %s" % (obj.pregio, obj.dettagli, ))      
+        can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (obj.pregio, ))      
         can.drawCentredString(w_pos + 120, PAGE_HEIGHT-y_pos, "%s" % (ss(obj.bonus, ))  )
         y_pos += y_incr       
         
