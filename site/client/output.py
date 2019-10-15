@@ -25,7 +25,7 @@ def print_scheda(modeladmin, request, queryset):
     response = HttpResponse(content_type='application/pdf')    
     
     if len(queryset) == 1:
-        title = queryset[0].name
+        title = slugify(queryset[0].name)
     else:
         title = "%s-%s" % ('Schede OiR', datetime.date.today())
         
@@ -34,7 +34,7 @@ def print_scheda(modeladmin, request, queryset):
     output = PdfFileWriter()
  
     for pg in queryset:
-        print_scheda_pg(pg)
+        # print_scheda_pg(pg)
         pdf_reader = PdfFileReader(os.path.join(settings.SCHEDE_DIR, "all", pg.secret + ".pdf"))
         for page in range(pdf_reader.getNumPages()):
             output.addPage(pdf_reader.getPage(page))       
@@ -177,7 +177,7 @@ def print_scheda_pg(pg):
     y_pos += y_incr
     can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.strada), ))     
     
-    y_spec = 488
+    y_spec = 486
     w_spec = 95  
     
     y_incr = 23.1
