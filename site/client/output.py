@@ -237,7 +237,10 @@ def print_scheda_pg(pg):
     page.mergePage(new_pdf.getPage(0))
     output.addPage(page)
     
-    outputStream = open(os.path.join(settings.SCHEDE_DIR, "all", pg.secret + ".pdf"), "wb")
+    pdf_path = os.path.join(settings.SCHEDE_DIR, "all", pg.secret + ".pdf")
+    if os.path.exists(pdf_path):
+        os.remove(pdf_path)    
+    outputStream = open(pdf_path, "wb")
     output.write(outputStream)
     outputStream.close()
  
