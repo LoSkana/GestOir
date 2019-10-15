@@ -8,7 +8,10 @@ def nice_try(request):
 
 def index(request):
     cxt = {}
-    cxt['pl'] = request.user.giocatore
+    try: 
+        cxt['pl'] = request.user.giocatore
+    except Exception:
+        return render(request, 'client/none.html', cxt) 
     if cxt['pl'] is None: 
         return render(request, 'client/none.html', cxt)
 

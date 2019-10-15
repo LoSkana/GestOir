@@ -21,6 +21,10 @@ Listen 8888
   <Directory /var/www/html/gestoir/static/>
     Require all granted
   </Directory>
+  
+  ErrorLog ${APACHE_LOG_DIR}/gestoir_error.log
+  CustomLog ${APACHE_LOG_DIR}/gestoir_access.log combined
+
 
 </VirtualHost>
 
