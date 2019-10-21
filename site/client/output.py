@@ -64,7 +64,7 @@ def ss(i):
 def sss(s):
     if s is None:
         return ''
-    return s
+    return "(%s)" % (s, )
         
 
 def print_scheda_pg(pg):

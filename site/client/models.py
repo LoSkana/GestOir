@@ -1,5 +1,7 @@
 import datetime
 
+from pprint import pprint
+
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
@@ -28,10 +30,12 @@ class AdvancedModel(BaseModel):
         abstract = True        
         
     def save(self, *args, **kwargs):
+        self.name = self.name.strip()
         self.slug = slugify(self.name)
-        s = type(self).objects.filter(slug=self.slug)
-        if len(s) == 0:
-            super(BaseModel, self).save(*args, **kwargs)        
+        s = type(self).objects.filter(slug=self.slug).exclude(pk=self.pk)
+        if len(s) > 0:
+            raise ValueError('Element already existing %s' % (self.slug)) 
+        super(BaseModel, self).save(*args, **kwargs)        
 
 class Genea(AdvancedModel):
     name = models.CharField(max_length=30)
@@ -183,12 +187,18 @@ class Evento(AdvancedModel):
         verbose_name_plural = 'Eventi'        
     def __str__(self):
         return self.name      
-
+        
+@receiver(pre_save, sender=Evento)
+def evento_pre_save(sender, instance, **kwargs):  
+    for gua in instance.guadagni.all():
+        gua.save()      
+        
 class GuadagnoPX(BaseModel):
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE, related_name='guadagni')
     personaggio = models.ForeignKey(Personaggio, on_delete=models.CASCADE, related_name='guadagni')
     px_tot = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(30)])
     
+    partecipato = models.BooleanField(default=True)
     px_fissi = models.SmallIntegerField(default=None, validators=[MinValueValidator(0), MaxValueValidator(20)])    
     interpretazione = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(3)])
     costumistica = models.SmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(3)])
@@ -203,9 +213,14 @@ class GuadagnoPX(BaseModel):
         return "" 
     
     def update_px(self):
-        if self.px_fissi is None:
-            eventi = self.personaggio.Guadagni.count()
-            self.px_fissi = 15 - eventi
+        if self.partecipato: 
+            passati = 0
+            for e in self.personaggio.guadagni.all():
+                if e.evento.data < self.evento.data:
+                    passati += 1
+            self.px_fissi = 15 - passati
+        else:
+            self.px_fissi = 0
         self.px_tot = self.px_fissi + self.interpretazione + self.costumistica + self.qualita_gioco + self.qualita_azioni
 
 @receiver(pre_save, sender=GuadagnoPX)
