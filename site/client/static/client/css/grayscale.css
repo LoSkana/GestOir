@@ -4,24 +4,23 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-grayscale/blob/master/LICENSE)
  */
  
+html, body, h1, h2 {
+    margin:0px;
+    padding:0px;
+}
+
 html {
-  font-family: 'Balthazar', serif;
   height: 100%; 
-  width: 100%;    
+  font-family: 'Balthazar', serif;
 }
 
 body {
-  background: url("../img/background.jpg");
+  background: url("../img/background.jpg"); 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%; 
-  width: 100%;
-}
 
-h1, h2 {
-    margin: 0;
-    padding: 0;
+  padding: 1em;
 }
 
 .masthead {
