@@ -35,7 +35,7 @@ def sheet(request, idx):
     except Personaggio.DoesNotExist:
         return nice_try(request)
         
-def px(request, idx):
+def stato(request, idx):
     try:
         cxt = {'pg': Personaggio.objects.get(pk=idx)}
         if cxt['pg'].giocatore != request.user.giocatore:

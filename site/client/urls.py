@@ -8,7 +8,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),    
     url(r'^sheet/(?P<idx>\d+)/$', views.sheet, name='sheet'),    
-    url(r'^px/(?P<idx>\d+)/$', views.px, name='px'),  
+    url(r'^stato/(?P<idx>\d+)/$', views.stato, name='stato'),  
 ] 
 
 

@@ -4,13 +4,45 @@
 
 {% block content %}
 
-    <h2>Dettaglio px di: {{ pg.name }}</h2>
-
-    <h4>Px guadagnati</h4>
+    <h2>Stato attuale di: {{ pg.name }}</h2>
     
     <table>
     <tr>
-        <th>Evento</th><th>Px tot</th><th>Px fissi</th><th>Interpret.</th><th>Costumist.</th><th>Qualità Gioco</th><th>Qualità Azioni</th>
+        <th>Nome</th>
+        <th>Congrega</th>
+        <th>Genea</th>
+        <th>Essenza</th>
+        <th>Voluntas</th>
+    </tr>
+    <tr>
+        <td>{{ pg.name }}</td>
+        <td>{{ pg.congrega }}</td>
+        <td>{{ pg.genea }}</td>
+        <td>{{ pg.essenza_c }}</td>
+        <td>{{ pg.voluntas_c }}</td>        
+    </tr>
+
+    <tr>
+        <th>Px liberi</th>
+        <th>Px totali</th>
+        <th>Aetas</th>
+        <th>Ess. max</th>
+        <th>Canal.</th>
+    </tr>
+    <tr>
+        <td>{{ pg.px_liberi }}</td>
+        <td>{{ pg.px_tot }}</td>
+        <td>{{ pg.aetas }}</td>
+        <td>{{ pg.essenza }}</td>
+        <td>{{ pg.canal }}</td>        
+    </tr>    
+    </table>    
+
+    <h4>Storico Px guadagnati</h4>
+    
+    <table>
+    <tr>
+        <th>Evento</th><th>Px tot</th><th>Px fissi</th><th>Int.</th><th>Cost.</th><th>Q. Gio.</th><th>Q. Azi.</th>
     </tr>
     {% for g in pg.guadagni.all %}
     <tr>
@@ -27,7 +59,7 @@
     
     <br />
     
-    <h4>Px spesi</h4>
+    <h4>Storico Px spesi</h4>
     
     <table>
     <tr>
