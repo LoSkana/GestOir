@@ -218,7 +218,7 @@ class GuadagnoPX(BaseModel):
             for e in self.personaggio.guadagni.all():
                 if e.evento.data < self.evento.data:
                     passati += 1
-            self.px_fissi = 15 - passati
+            self.px_fissi = 18 - passati
         else:
             self.px_fissi = 0
         self.px_tot = self.px_fissi + self.interpretazione + self.costumistica + self.qualita_gioco + self.qualita_azioni

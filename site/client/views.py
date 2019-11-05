@@ -41,7 +41,21 @@ def stato(request, idx):
         if cxt['pg'].giocatore != request.user.giocatore:
             return nice_try(request)
             
-        return render(request, 'client/px.html', cxt)
+        cxt['pg'].bgk = []
+        for b in ['risorse', 'mentore', 'gregge', 'retaggio', 'discepoli', 'alleati']:
+            v = getattr(cxt['pg'], b)
+            if v > 0: 
+                el = {'nome': b.capitalize() , 'livello': v}
+                cxt['pg'].bgk.append(el)
+        
+        cxt['pg'].inf = []
+        for b in ['alta_societa', 'sanita', 'finanza', 'trasporti', 'politica', 'forze_ordine', 'occultismo', 'religione', 'criminalita', 'media']:
+            v = getattr(cxt['pg'], b)
+            if v > 0: 
+                el = {'nome': b.capitalize() , 'livello': v}
+                cxt['pg'].inf.append(el)                
+           
+        return render(request, 'client/stato.html', cxt)
     except Personaggio.DoesNotExist:
         return nice_try(request)
          

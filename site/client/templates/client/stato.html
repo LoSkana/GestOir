@@ -37,22 +37,85 @@
         <td>{{ pg.canal }}</td>        
     </tr>    
     </table>    
+    
+    <br /><br />
+    
+    <table>
+    <tr>
+    <td>
+    
+    <h4>Poteri</h4>
+    
+    <table>
+    <tr>
+        <th>Nome</th>
+        <th>Livello</th>
+    </tr>    
+    {% for pr in pg.poteri.all %}
+    <tr>
+        <td>{{ pr.potere }}</td>
+        <td>{{ pr.livello }}</td>
+    </tr>
+    {% endfor %}
+    </table>    
+    
+    </td>
+    <td>
+    
+    <h4>Background</h4>
+    
+    <table>
+    <tr>
+        <th>Nome</th>
+        <th>Livello</th>
+    </tr>    
+    {% for b in pg.bgk %}
+    <tr>
+        <td>{{ b.nome }}</td>
+        <td>{{ b.livello }}</td>
+    </tr>
+    {% endfor %}
+    </table>   
+    
+    <h4>Influenze</h4>
+    
+    <table>
+    <tr>
+        <th>Nome</th>
+        <th>Livello</th>
+    </tr>    
+    {% for b in pg.inf %}
+    <tr>
+        <td>{{ b.nome }}</td>
+        <td>{{ b.livello }}</td>
+    </tr>
+    {% endfor %}
+    </table>  
+    
+    </td></tr>
+    </table>    
+    
+    <h4>Stato</h4>
 
     <h4>Storico Px guadagnati</h4>
     
     <table>
     <tr>
-        <th>Evento</th><th>Px tot</th><th>Px fissi</th><th>Int.</th><th>Cost.</th><th>Q. Gio.</th><th>Q. Azi.</th>
+        <th>Evento</th><th>Px tot</th>
+        <!--<th>Px fissi</th><th>Int.</th><th>Cost.</th><th>Q. Gio.</th><th>Q. Azi.</th>-->
     </tr>
     {% for g in pg.guadagni.all %}
     <tr>
         <td>{{ g.evento }}</td>
         <td>{{ g.px_tot }}</td>
+        
+        <!--
         <td>{{ g.px_fissi }}</td>
         <td>{{ g.interpretazione }}</td>
         <td>{{ g.costumistica }}</td>
         <td>{{ g.qualita_gioco }}</td>
         <td>{{ g.qualita_azioni }}</td>
+        -->
     </tr>
     {% endfor %}
     </table>
