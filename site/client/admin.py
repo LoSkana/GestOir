@@ -33,7 +33,7 @@ class PotereAdmin(BaseAdmin):
 admin.site.register(Potere, PotereAdmin)
 
 class GiocatoreAdmin(BaseAdmin):
-    list_display = ('name',)  
+    list_display = ('name', 'user')  
     autocomplete_fields = ('user', )
     
 admin.site.register(Giocatore, GiocatoreAdmin)
