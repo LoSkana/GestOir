@@ -62,7 +62,7 @@ def ss(i):
         return str(i)
         
 def sss(s):
-    if s is None:
+    if s is None or s == '':
         return ''
     return "(%s)" % (s, )
         
