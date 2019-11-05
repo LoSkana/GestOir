@@ -140,7 +140,7 @@ class Personaggio(AdvancedModel):
         verbose_name_plural = 'Personaggi'  
         
     def __str__(self):
-        return self.name            
+        return "%s - %s" % (self.name, self.giocatore if self.giocatore is not None else "")         
         
 @receiver(pre_save, sender=Personaggio)
 def personaggio_save(sender, instance, **kwargs):  
