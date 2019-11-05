@@ -240,7 +240,7 @@ class SpesaPX(BaseModel):
     
     class Meta:
         verbose_name_plural = 'Px Spesi'   
-        unique_together = ('evento', 'personaggio',)  
+        unique_together = ('evento', 'personaggio', 'motivazione')  
     def __str__(self):
         return ""       
 
