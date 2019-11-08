@@ -29,7 +29,7 @@ def print_scheda(modeladmin, request, queryset):
     if len(queryset) == 1:
         title = slugify(queryset[0].name)
     else:
-        title = "%s-%s" % ('Schede OiR', datetime.date.today())
+        title = "%s-%s" % ('SchedeOiR', datetime.date.today())
         
     response['Content-Disposition'] = 'attachment; filename=%s.pdf' % (title, )
         
