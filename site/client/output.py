@@ -36,7 +36,7 @@ def print_scheda(modeladmin, request, queryset):
     output = PdfFileWriter()
  
     for pg in queryset:
-        print_scheda_pg(pg)
+        # print_scheda_pg(pg)
         pdf_reader = PdfFileReader(os.path.join(settings.SCHEDE_DIR, "all", pg.secret + ".pdf"))
         for page in range(pdf_reader.getNumPages()):
             output.addPage(pdf_reader.getPage(page))       
