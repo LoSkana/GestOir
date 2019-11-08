@@ -83,7 +83,7 @@ def print_scheda_pg(pg):
     
     can.setFont('Balthazar', 14)
     w_attr = 254
-    w_spec = 506
+    w_spec = 515
     y_first = 116
     y_incr = 24.8
     
