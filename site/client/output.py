@@ -184,7 +184,7 @@ def print_scheda_pg(pg):
     y_pos += y_incr
     can.drawCentredString(w_pos, PAGE_HEIGHT-y_pos, "%s" % (s(pg.strada), ))     
     
-    y_spec = 490
+    y_spec = 488
     w_spec = 95  
     
     y_incr = 23.1
