@@ -243,7 +243,7 @@ class SpesaPX(BaseModel):
         unique_together = ('evento', 'personaggio', 'motivazione')  
    
     def __str__(self):
-        return "%s - %s - %s - %d" % (self.personaggio, self.evento, self.motivazione, self.px_tot)  
+        return "%s - %s - %s - %d" % (self.personaggio, self.evento, self.motivazione, self.px_spesi)  
 
 @receiver(post_save, sender=SpesaPX)
 def spesa_save(sender, instance, created, **kwargs):  
