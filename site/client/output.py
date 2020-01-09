@@ -252,7 +252,7 @@ def print_scheda_pg(pg):
     outputStream.close()
  
 
-def update_pg(pg):
+def update_pg(pg, update_essenza = False):
     pg.px_tot = 0
     for obj in pg.guadagni.all():     
         pg.px_tot += obj.px_tot
@@ -274,5 +274,8 @@ def update_pg(pg):
         pg.voluntas_c = pg.voluntas
     
     print_scheda_pg(pg)
+    
+    if update_essenza: 
+        pg.essenza_c = essenza
     
     # print("ciao")

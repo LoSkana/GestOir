@@ -210,7 +210,7 @@ class GuadagnoPX(BaseModel):
         unique_together = ('evento', 'personaggio',)
     
     def __str__(self):
-        return "" 
+        return "%s - %s - %d" % (self.personaggio, self.evento, self.px_tot)  
     
     def update_px(self):
         if self.partecipato: 
@@ -229,7 +229,7 @@ def guadagno_pre_save(sender, instance, **kwargs):
 
 @receiver(post_save, sender=GuadagnoPX)
 def guadagno_post_save(sender, instance, created, **kwargs):  
-    update_pg(instance.personaggio) 
+    update_pg(instance.personaggio, True) 
     instance.personaggio.save()            
 
 class SpesaPX(BaseModel):
@@ -241,8 +241,9 @@ class SpesaPX(BaseModel):
     class Meta:
         verbose_name_plural = 'Px Spesi'   
         unique_together = ('evento', 'personaggio', 'motivazione')  
+   
     def __str__(self):
-        return ""       
+        return "%s - %s - %s - %d" % (self.personaggio, self.evento, self.motivazione, self.px_tot)  
 
 @receiver(post_save, sender=SpesaPX)
 def spesa_save(sender, instance, created, **kwargs):  
