@@ -266,16 +266,13 @@ def update_pg(pg, update_essenza = False):
     pg.essenza = int(pg.aetas * ( 1.5 + 0.5 * pg.retaggio))
     
     pg.raptus = pg.retaggio + pg.nefesh
-    
-    if pg.essenza_c == 0:
-        pg.essenza_c = pg.essenza
 
     if pg.voluntas_c == 0:
         pg.voluntas_c = pg.voluntas
     
     print_scheda_pg(pg)
     
-    if update_essenza: 
-        pg.essenza_c = essenza
+    if update_essenza or pg.essenza_c == 0: 
+        pg.essenza_c = pg.essenza
     
     # print("ciao")
