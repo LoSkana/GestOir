@@ -72,7 +72,7 @@ class PersonaggioAdmin(BaseAdmin):
     autocomplete_fields = ('giocatore', 'genea', 'congrega')
     fieldsets = (
         ('GENERALE', {
-            'fields': (('name', 'giocatore', 'png'), ('genea', 'congrega'),)
+            'fields': (('name', 'giocatore', 'active'), ('genea', 'congrega', 'png'),)
         }),
         ('STATO', {
             'fields': (('essenza_c', 'voluntas_c', 'carica'),)
