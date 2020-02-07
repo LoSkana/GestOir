@@ -78,6 +78,7 @@ def md5secret():
 
 class Personaggio(AdvancedModel):
     giocatore = models.ForeignKey(Giocatore, on_delete=models.SET_NULL, null=True, related_name='personaggi')
+    active = models.BooleanField(default=True)
     name = models.CharField(max_length=30)
     png = models.BooleanField(default=False)
     genea = models.ForeignKey(Genea, models.SET_NULL, null=True, related_name='genea') 

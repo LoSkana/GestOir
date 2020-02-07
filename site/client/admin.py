@@ -67,7 +67,7 @@ class SpecManualitaInline(admin.TabularInline):
 
 class PersonaggioAdmin(BaseAdmin):
     list_display = ('name', 'png', 'giocatore', 'genea', 'congrega', 'px_tot', 'px_liberi', 'aetas', 'canal', 'essenza_c', 'voluntas_c')
-    search_fields = ('name', )    
+    search_fields = ('name', 'png', 'active')    
     readonly_fields = ('px_tot', 'px_liberi', 'aetas', 'essenza', 'canal', 'raptus')
     autocomplete_fields = ('giocatore', 'genea', 'congrega')
     fieldsets = (
